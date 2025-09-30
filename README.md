@@ -40,6 +40,7 @@ O programa oferece as seguintes funcionalidades:
   * 19 – Cosseno Hiperbólico
   * 20 – Tangente Hiperbólica
 
+  * 0 - Sair
 -----
 
 ## Tecnologias e Recursos Utilizados
