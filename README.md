@@ -39,7 +39,7 @@ O programa oferece as seguintes funcionalidades:
   * 18 – Seno Hiperbólico 
   * 19 – Cosseno Hiperbólico
   * 20 – Tangente Hiperbólica
-  
+  * *****
   * 0 - Sair
 -----
 
