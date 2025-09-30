@@ -1,4 +1,4 @@
-# Calculadora Científica em C 🎲
+# Calculadora Científica em C
 
 Este projeto implementa uma calculadora científica em C , que oferece desde operações aritméticas básicas (soma, subtração, multiplicação e divisão) até funções matemáticas avançadas, como exponenciação, logaritmos, funções trigonométricas (seno, cosseno, tangente), funções hiperbólicas e cálculo da hipotenusa.
 
