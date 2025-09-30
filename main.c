@@ -1,177 +1,308 @@
-#include <stdio.h> 
-#include <math.h> 
+// Inclui a biblioteca de entrada e sa√≠da
+#include <stdio.h>
+// Inclui a biblioteca matem√°tica
+#include <math.h>
+// Inclui a biblioteca booleana
+#include <stdbool.h>
 
+// Define a constante PI 
+#define PI 3.14159265358979323846
 
-#define _USE_MATH_DEFINES
-
-// Verifica se a constante M_PI (o n˙mero Pi) n„o foi definida.
-#ifndef M_PI
-// Se n„o foi definida, define M_PI com um valor de alta precis„o.
-#define M_PI 3.14159265358979323846
-#endif
-
-// Verifica se a constante M_E (o n˙mero de Euler) n„o foi definida.
-#ifndef M_E
-// Se n„o foi definida, define M_E com um valor de alta precis„o.
-#define M_E 2.71828182845904523536
-#endif
-
-// A funÁ„o main È o ponto de entrada de qualquer programa em C.
+// Fun√ß√£o principal, onde a execu√ß√£o do programa come√ßa.
 int main() {
-    // Declara uma vari·vel 'opcao' do tipo inteiro para armazenar a escolha do usu·rio.
-    int opcao;
-    // Declara trÍs vari·veis do tipo 'double' para armazenar os n˙meros da operaÁ„o e o resultado.
-    // 'double' È usado para permitir n˙meros com casas decimais e de maior precis„o.
-    double num1, num2, resultado;
+    int escolha;
+    double num1, num2;
 
-    // Exibe o menu de opÁıes para o usu·rio.
-    printf("Escolha a operacao:\n");
-    printf("1 - Adicao\n");
-    printf("2 - Subtracao\n");
-    printf("3 - Multiplicacao\n");
-    printf("4 - Divisao\n");
-    printf("5 - Exponenciacao (a^b)\n");
-    printf("6 - Raiz Quadrada\n");
-    printf("7 - Seno\n");
-    printf("8 - Cosseno\n");
-    printf("9 - Tangente\n");
-    printf("10 - Logaritmo base 10 (log10)\n");
-    printf("11 - Logaritmo Neperiano (ln)\n");
-    printf("12 - Exponencial (e^x)\n");
-    // Solicita que o usu·rio digite a opÁ„o desejada.
-    printf("Digite a opcao: ");
-    // LÍ o n˙mero inteiro digitado pelo usu·rio e o armazena na vari·vel 'opcao'.
-    scanf("%d", &opcao);
+    do {
+        // --- SE√á√ÉO DO MENU ---
+        printf("---------- CALCULADORA CIENTIFICA ----------\n");
+        printf("| 1 - Soma\n");
+        printf("| 2 - Subtracao\n");
+        printf("| 3 - Multiplicacao\n");
+        printf("| 4 - Divisao\n");
+        printf("| 5 - Exponenciacao\n");
+        printf("| 6 - Raiz Quadrada\n");
+        printf("| 7 - Raiz Cubica\n");
+        printf("| 8 - Seno\n");
+        printf("| 9 - Cosseno\n");
+        printf("| 10 - Tangente\n");
+        printf("| 11 - Logaritmo Base 10\n");
+        printf("| 12 - Logaritmo Natural\n");
+        printf("| 13 - Constante de Euler (e^x)\n");
+        printf("| 14 - Arco-Cosseno\n");
+        printf("| 15 - Arco-Seno\n");
+        printf("| 16 - Arco-Tangente\n");
+        printf("| 17 - Hipotenusa\n");
+        printf("| 18 - Seno Hiperbolico\n");
+        printf("| 19 - Cosseno Hiperbolico\n");
+        printf("| 20 - Tangente Hiperbolica\n");
+        printf("\n| 0 - Sair\n");
+        printf("--------------------------------------------\n");
+    
+        // Pede ao usu√°rio que digite sua escolha.
+        printf("Escolha uma operacao: ");
+        // L√™ o n√∫mero inteiro digitado pelo usu√°rio e armazena na vari√°vel 'escolha'.
+        scanf("%d", &escolha);
 
-    // A estrutura switch-case avalia o valor da vari·vel 'opcao' e executa o bloco de cÛdigo correspondente.
-    switch(opcao) {
-        // Caso a opÁ„o seja 1 (AdiÁ„o):
-        case 1:
-            // Pede ao usu·rio para digitar dois n˙meros.
-            printf("Digite dois numeros: ");
-            // LÍ os dois n˙meros (double) e os armazena em num1 e num2.
-            scanf("%lf %lf", &num1, &num2);
-            // Realiza a soma e guarda o valor em 'resultado'.
-            resultado = num1 + num2;
-            // Exibe o resultado formatado com duas casas decimais.
-            printf("Resultado: %.2lf\n", resultado);
-            // 'break' finaliza a execuÁ„o do switch.
+        // Verifica se a escolha do usu√°rio foi 0 (a op√ß√£o de sair).
+        if (escolha == 0) {
+            // Se a escolha for 0, interrompe o la√ßo 'do-while' e o programa prossegue para o final.
             break;
-        // Caso a opÁ„o seja 2 (SubtraÁ„o):
-        case 2:
-            printf("Digite dois numeros: ");
-            scanf("%lf %lf", &num1, &num2);
-            resultado = num1 - num2;
-            printf("Resultado: %.2lf\n", resultado);
-            break;
-        // Caso a opÁ„o seja 3 (MultiplicaÁ„o):
-        case 3:
-            printf("Digite dois numeros: ");
-            scanf("%lf %lf", &num1, &num2);
-            resultado = num1 * num2;
-            printf("Resultado: %.2lf\n", resultado);
-            break;
-        // Caso a opÁ„o seja 4 (Divis„o):
-        case 4:
-            printf("Digite dois numeros: ");
-            scanf("%lf %lf", &num1, &num2);
-            // Verifica se o segundo n˙mero (divisor) È diferente de zero para evitar um erro matem·tico.
-            if(num2 != 0) {
-                // Se n„o for zero, realiza a divis„o.
-                resultado = num1 / num2;
-                printf("Resultado: %.2lf\n", resultado);
-            } else {
-                // Se for zero, exibe uma mensagem de erro.
-                printf("Erro: Divisao por zero!\n");
-            }
-            break;
-        // Caso a opÁ„o seja 5 (ExponenciaÁ„o):
-        case 5:
-            printf("Digite a base e o expoente: ");
-            scanf("%lf %lf", &num1, &num2);
-            // Usa a funÁ„o 'pow' da biblioteca math.h para calcular num1 elevado a num2.
-            resultado = pow(num1, num2);
-            printf("Resultado: %.2lf\n", resultado);
-            break;
-        // Caso a opÁ„o seja 6 (Raiz Quadrada):
-        case 6:
+        }
+        
+        // --- SE√á√ÉO DE ENTRADA DE N√öMEROS ---
+        // Verifica se a opera√ß√£o escolhida precisa de dois n√∫meros.
+        if ((escolha >= 1 && escolha <= 5) || escolha == 17) {
+            // Pede o primeiro n√∫mero ao usu√°rio.
+            printf("Digite o primeiro numero: ");
+            // L√™ o primeiro n√∫mero (double) e armazena em 'num1'.
+            scanf("%lf", &num1);
+            // Pede o segundo n√∫mero ao usu√°rio.
+            printf("Digite o segundo numero: ");
+            // L√™ o segundo n√∫mero (double) e armazena em 'num2'.
+            scanf("%lf", &num2);
+        } 
+        // Se n√£o, verifica se a opera√ß√£o precisa de apenas um n√∫mero.
+        else if (escolha >= 6 && escolha <= 20) {
+            // Pede o √∫nico n√∫mero necess√°rio.
             printf("Digite o numero: ");
-            scanf("%lf", &num1);
-            // Verifica se o n˙mero È n„o negativo, pois n„o existe raiz quadrada real de n˙mero negativo.
-            if(num1 >= 0) {
-                // Usa a funÁ„o 'sqrt' da biblioteca math.h para calcular a raiz quadrada.
-                resultado = sqrt(num1);
-                printf("Resultado: %.2lf\n", resultado);
-            } else {
-                // Se o n˙mero for negativo, exibe uma mensagem de erro.
-                printf("Erro: Raiz de numero negativo!\n");
+            // Verifica se √© uma opera√ß√£o trigonom√©trica para adicionar um aviso.
+            if (escolha >= 8 && escolha <= 10) {
+                 // Informa ao usu√°rio que o √¢ngulo deve ser em radianos.
+                 printf("(o angulo sera tratado em radianos): ");
             }
-            break;
-        // Caso a opÁ„o seja 7 (Seno):
-        case 7:
-            printf("Digite o angulo em graus: ");
+            // L√™ o n√∫mero e armazena em 'num1'.
             scanf("%lf", &num1);
-            // As funÁıes trigonomÈtricas em C esperam o ‚ngulo em radianos.
-            // A fÛrmula (num1 * M_PI / 180) converte o ‚ngulo de graus para radianos.
-            resultado = sin(num1 * M_PI / 180);
-            printf("Resultado: %.2lf\n", resultado);
-            break;
-        // Caso a opÁ„o seja 8 (Cosseno):
-        case 8:
-            printf("Digite o angulo em graus: ");
-            scanf("%lf", &num1);
-            // Converte graus para radianos antes de calcular o cosseno.
-            resultado = cos(num1 * M_PI / 180);
-            printf("Resultado: %.2lf\n", resultado);
-            break;
-        // Caso a opÁ„o seja 9 (Tangente):
-        case 9:
-            printf("Digite o angulo em graus: ");
-            scanf("%lf", &num1);
-            // Converte graus para radianos antes de calcular a tangente.
-            resultado = tan(num1 * M_PI / 180);
-            printf("Resultado: %.2lf\n", resultado);
-            break;
-        // Caso a opÁ„o seja 10 (Logaritmo na base 10):
-        case 10:
-            printf("Digite o numero: ");
-            scanf("%lf", &num1);
-            // Verifica se o n˙mero È positivo, pois logaritmos n„o s„o definidos para n˙meros n„o positivos.
-            if(num1 > 0) {
-                // Usa a funÁ„o 'log10' para calcular o logaritmo na base 10.
-                resultado = log10(num1);
-                printf("Resultado: %.2lf\n", resultado);
-            } else {
-                // Se o n˙mero n„o for positivo, exibe uma mensagem de erro.
-                printf("Erro: Logaritmo de numero nao positivo!\n");
-            }
-            break;
-        // Caso a opÁ„o seja 11 (Logaritmo Neperiano - base e):
-        case 11:
-            printf("Digite o numero: ");
-            scanf("%lf", &num1);
-            // Verifica se o n˙mero È positivo.
-            if(num1 > 0) {
-                // Usa a funÁ„o 'log' para calcular o logaritmo natural (base e).
-                resultado = log(num1);
-                printf("Resultado: %.2lf\n", resultado);
-            } else {
-                // Se o n˙mero n„o for positivo, exibe uma mensagem de erro.
-                printf("Erro: Logaritmo de numero nao positivo!\n");
-            }
-            break;
-        // Caso a opÁ„o seja 12 (Exponencial - e^x):
-        case 12:
-            printf("Digite o expoente x para e^x: ");
-            scanf("%lf", &num1);
-            // Usa a funÁ„o 'exp' para calcular e elevado ao n˙mero digitado.
-            resultado = exp(num1);
-            printf("Resultado: %.2lf\n", resultado);
-            break;
-        // O caso 'default' È executado se o valor de 'opcao' n„o corresponder a nenhum dos 'case' anteriores.
-        default:
-            printf("Opcao invalida!\n");
-    }
-    // Retorna 0 para o sistema operacional, indicando que o programa foi executado com sucesso.
+        } 
+        // Se a escolha n√£o for nenhuma das op√ß√µes v√°lidas.
+        else {
+            // Informa ao usu√°rio que a op√ß√£o √© inv√°lida.
+            printf("\nOpcao invalida! Pressione Enter para tentar novamente.\n");
+            // Limpa o buffer de entrada para remover caracteres restantes (como o Enter).
+            while (getchar() != '\n');
+            // Pausa o programa esperando que o usu√°rio pressione Enter.
+            getchar();
+            // Pula o resto da intera√ß√£o atual e volta para o in√≠cio do la√ßo 'do-while'.
+            continue;
+        }
+
+        // --- SE√á√ÉO DE C√ÅLCULO ---
+        // Declara uma vari√°vel para armazenar o resultado do c√°lculo.
+        double resultado;
+        // Declara uma 'flag' booleana para verificar se a opera√ß√£o foi bem-sucedida. Inicia como verdadeira.
+        bool operacaoValida = true;
+
+        // Inicia uma estrutura switch para selecionar a opera√ß√£o correta com base na 'escolha'.
+        switch (escolha) {
+            // Caso a escolha seja 1 (Soma).
+            case 1:
+                // Executa a soma.
+                resultado = num1 + num2;
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 2 (Subtra√ß√£o).
+            case 2:
+                // Executa a subtra√ß√£o.
+                resultado = num1 - num2;
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 3 (Multiplica√ß√£o).
+            case 3:
+                // Executa a multiplica√ß√£o.
+                resultado = num1 * num2;
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 4 (Divis√£o).
+            case 4:
+                // Verifica se o divisor √© diferente de zero.
+                if (num2 != 0) {
+                    // Se for, realiza a divis√£o.
+                    resultado = num1 / num2;
+                // Se o divisor for zero.
+                } else {
+                    // Exibe uma mensagem de erro.
+                    printf("ERRO: Divisao por zero!\n");
+                    // Define a flag como 'false' para indicar que a opera√ß√£o falhou.
+                    operacaoValida = false;
+                }
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 5 (Exponencia√ß√£o).
+            case 5:
+                // Calcula a pot√™ncia usando a fun√ß√£o pow() da biblioteca math.h.
+                resultado = pow(num1, num2);
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 6 (Raiz Quadrada).
+            case 6:
+                // Verifica se o n√∫mero √© n√£o-negativo.
+                if (num1 >= 0) {
+                    // Se for, calcula a raiz quadrada com a fun√ß√£o sqrt().
+                    resultado = sqrt(num1);
+                // Se o n√∫mero for negativo.
+                } else {
+                    // Exibe uma mensagem de erro.
+                    printf("ERRO: Raiz de negativo.\n");
+                    // Define a flag de opera√ß√£o como 'false'.
+                    operacaoValida = false;
+                }
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 7 (Raiz C√∫bica).
+            case 7:
+                // Calcula a raiz c√∫bica com a fun√ß√£o cbrt().
+                resultado = cbrt(num1);
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 8 (Seno).
+            case 8:
+                // Calcula o seno do √¢ngulo em radianos com a fun√ß√£o sin().
+                resultado = sin(num1);
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 9 (Cosseno).
+            case 9:
+                // Calcula o cosseno do √¢ngulo em radianos com a fun√ß√£o cos().
+                resultado = cos(num1);
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 10 (Tangente).
+            case 10:
+                // Calcula a tangente do √¢ngulo em radianos com a fun√ß√£o tan().
+                resultado = tan(num1);
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 11 (Logaritmo na Base 10).
+            case 11:
+                // Verifica se o n√∫mero √© positivo.
+                if (num1 > 0) {
+                    // Se for, calcula o logaritmo na base 10 com a fun√ß√£o log10().
+                    resultado = log10(num1);
+                // Se o n√∫mero for zero ou negativo.
+                } else {
+                    // Exibe uma mensagem de erro.
+                    printf("ERRO: Log de nao positivo.\n");
+                    // Define a flag de opera√ß√£o como 'false'.
+                    operacaoValida = false;
+                }
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 12 (Logaritmo Natural).
+            case 12:
+                // Verifica se o n√∫mero √© positivo.
+                if (num1 > 0) {
+                    // Se for, calcula o logaritmo natural com a fun√ß√£o log().
+                    resultado = log(num1);
+                // Se o n√∫mero for zero ou negativo.
+                } else {
+                    // Exibe uma mensagem de erro.
+                    printf("ERRO: Log de nao positivo.\n");
+                    // Define a flag de opera√ß√£o como 'false'.
+                    operacaoValida = false;
+                }
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 13 (Constante de Euler).
+            case 13:
+                // Calcula 'e' elevado ao n√∫mero com a fun√ß√£o exp().
+                resultado = exp(num1);
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 14 (Arco-Cosseno).
+            case 14:
+                // Verifica se o n√∫mero est√° no dom√≠nio da fun√ß√£o [-1, 1].
+                if (num1 >= -1 && num1 <= 1) {
+                    // Se estiver, calcula o arco-cosseno com a fun√ß√£o acos().
+                    resultado = acos(num1);
+                // Se estiver fora do dom√≠nio.
+                } else {
+                    // Exibe uma mensagem de erro.
+                    printf("ERRO: Dominio invalido.\n");
+                    // Define a flag de opera√ß√£o como 'false'.
+                    operacaoValida = false;
+                }
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 15 (Arco-Seno).
+            case 15:
+                // Verifica se o n√∫mero est√° no dom√≠nio da fun√ß√£o [-1, 1].
+                if (num1 >= -1 && num1 <= 1) {
+                    // Se estiver, calcula o arco-seno com a fun√ß√£o asin().
+                    resultado = asin(num1);
+                // Se estiver fora do dom√≠nio.
+                } else {
+                    // Exibe uma mensagem de erro.
+                    printf("ERRO: Dominio invalido.\n");
+                    // Define a flag de opera√ß√£o como 'false'.
+                    operacaoValida = false;
+                }
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 16 (Arco-Tangente).
+            case 16:
+                // Calcula o arco-tangente com a fun√ß√£o atan().
+                resultado = atan(num1);
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 17 (Hipotenusa).
+            case 17:
+                // Calcula a hipotenusa com a fun√ß√£o hypot().
+                resultado = hypot(num1, num2);
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 18 (Seno Hiperb√≥lico).
+            case 18:
+                // Calcula o seno hiperb√≥lico com a fun√ß√£o sinh().
+                resultado = sinh(num1);
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 19 (Cosseno Hiperb√≥lico).
+            case 19:
+                // Calcula o cosseno hiperb√≥lico com a fun√ß√£o cosh().
+                resultado = cosh(num1);
+                // Sai do switch.
+                break;
+            // Caso a escolha seja 20 (Tangente Hiperb√≥lica).
+            case 20:
+                // Calcula a tangente hiperb√≥lica com a fun√ß√£o tanh().
+                resultado = tanh(num1);
+                // Sai do switch.
+                break;
+        }
+
+        // --- SE√á√ÉO DE EXIBI√á√ÉO DO RESULTADO ---
+        // Ap√≥s o switch, verifica se a opera√ß√£o foi v√°lida.
+        if (operacaoValida) {
+             // Se a opera√ß√£o foi a hipotenusa, usa uma formata√ß√£o de texto especial.
+             if (escolha == 17) {
+                 // Imprime o resultado da hipotenusa.
+                 printf("\nResultado: A hipotenusa e %.2lf\n", resultado);
+             // Se foi uma opera√ß√£o trigonom√©trica, usa uma formata√ß√£o com mais casas decimais.
+             } else if (escolha >= 8 && escolha <= 16){
+                 // Imprime o resultado com 4 casas decimais.
+                 printf("\nResultado: %.4lf\n", resultado);
+             // Para todas as outras opera√ß√µes v√°lidas.
+             } else {
+                 // Imprime o resultado com a formata√ß√£o padr√£o (2 casas decimais).
+                 printf("\nResultado: %.2lf\n", resultado);
+             }
+        }
+
+        // --- SE√á√ÉO DE PAUSA ---
+        // Pede ao usu√°rio para pressionar Enter para prosseguir.
+        printf("\nPressione Enter para continuar...\n");
+        // Limpa qualquer caractere restante no buffer de entrada (como o '\n' do scanf).
+        while (getchar() != '\n');
+        // Pausa o programa, esperando que o usu√°rio pressione Enter.
+        getchar();
+
+    // Fim do la√ßo 'do-while'. A condi√ß√£o para repetir √© a 'escolha' ser diferente de 0.
+    } while (escolha != 0);
+
+    // Exibe uma mensagem de despedida quando o la√ßo termina.
+    printf("\nSaindo da calculadora\n");
+
+    // Retorna 0, indicando que o programa foi executado com sucesso.
     return 0;
+// Fecha a fun√ß√£o main.
 }
