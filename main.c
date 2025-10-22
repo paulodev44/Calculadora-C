@@ -8,6 +8,35 @@
 // Define a constante PI 
 #define PI 3.14159265358979323846
 
+// --- FUNÇÃO VOID PARA EXIBIR O MENU ---
+
+void exibirMenu() {
+    printf("---------- CALCULADORA CIENTIFICA ----------\n");
+    printf("| 1 - Soma\n");
+    printf("| 2 - Subtracao\n");
+    printf("| 3 - Multiplicacao\n");
+    printf("| 4 - Divisao\n");
+    printf("| 5 - Exponenciacao\n");
+    printf("| 6 - Raiz Quadrada\n");
+    printf("| 7 - Raiz Cubica\n");
+    printf("| 8 - Seno\n");
+    printf("| 9 - Cosseno\n");
+    printf("| 10 - Tangente\n");
+    printf("| 11 - Logaritmo Base 10\n");
+    printf("| 12 - Logaritmo Natural\n");
+    printf("| 13 - Constante de Euler (e^x)\n");
+    printf("| 14 - Arco-Cosseno\n");
+    printf("| 15 - Arco-Seno\n");
+    printf("| 16 - Arco-Tangente\n");
+    printf("| 17 - Hipotenusa\n");
+    printf("| 18 - Seno Hiperbolico\n");
+    printf("| 19 - Cosseno Hiperbolico\n");
+    printf("| 20 - Tangente Hiperbolica\n");
+    printf("\n| 0 - Sair\n");
+    printf("--------------------------------------------\n");
+}
+
+
 // Função principal, onde a execução do programa começa.
 int main() {
     int escolha;
@@ -15,29 +44,8 @@ int main() {
 
     do {
         // --- SEÇÃO DO MENU ---
-        printf("---------- CALCULADORA CIENTIFICA ----------\n");
-        printf("| 1 - Soma\n");
-        printf("| 2 - Subtracao\n");
-        printf("| 3 - Multiplicacao\n");
-        printf("| 4 - Divisao\n");
-        printf("| 5 - Exponenciacao\n");
-        printf("| 6 - Raiz Quadrada\n");
-        printf("| 7 - Raiz Cubica\n");
-        printf("| 8 - Seno\n");
-        printf("| 9 - Cosseno\n");
-        printf("| 10 - Tangente\n");
-        printf("| 11 - Logaritmo Base 10\n");
-        printf("| 12 - Logaritmo Natural\n");
-        printf("| 13 - Constante de Euler (e^x)\n");
-        printf("| 14 - Arco-Cosseno\n");
-        printf("| 15 - Arco-Seno\n");
-        printf("| 16 - Arco-Tangente\n");
-        printf("| 17 - Hipotenusa\n");
-        printf("| 18 - Seno Hiperbolico\n");
-        printf("| 19 - Cosseno Hiperbolico\n");
-        printf("| 20 - Tangente Hiperbolica\n");
-        printf("\n| 0 - Sair\n");
-        printf("--------------------------------------------\n");
+        // Aqui, chamamos a função 'void' para executar a ação de exibir o menu.
+        exibirMenu();
     
         // Pede ao usuário que digite sua escolha.
         printf("Escolha uma operacao: ");
