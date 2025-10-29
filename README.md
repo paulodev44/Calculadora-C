@@ -1,13 +1,12 @@
 # Calculadora Científica em C
 
-Este projeto implementa uma calculadora científica em C , que oferece desde operações aritméticas básicas (soma, subtração, multiplicação e divisão) até funções matemáticas avançadas, como exponenciação, logaritmos, funções trigonométricas (seno, cosseno, tangente), funções hiperbólicas e cálculo da hipotenusa.
+Este projeto implementa uma calculadora científica modular e robusta em C. Ela oferece não apenas funções aritméticas e trigonométricas, mas também operações de estatística (com arrays), manipulação de matrizes (2x2), e um histórico de operações com persistência em arquivo.
 
 -----
 
 ## O que o programa faz
 
-O usuário interage através de um menu interativo em loop, podendo realizar várias operações até escolher a opção de sair. O programa aceita um ou dois números, dependendo da operação, e exibe o resultado.
-
+O usuário interage através de um menu interativo em loop, podendo realizar várias operações até escolher a opção de sair. O programa é robusto contra entradas inválidas (como letras em vez de números), armazena as últimas 20 operações em um histórico (usando struct) e salva esse histórico em um arquivo historico_calculadora.csv ao sair (e o carrega ao iniciar).
 -----
 
 ## Operações Disponíveis
