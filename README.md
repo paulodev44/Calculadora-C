@@ -67,9 +67,9 @@ O programa oferece as seguintes funcionalidades:
 ## Tecnologias e Recursos Utilizados
 
   * **Linguagem C**: linguagem de programação utilizada.
-  * **Structs: Uso da struct Operacao para gerenciar o histórico de forma organizada.
-  * **Arrays e Alocação Dinâmica: Uso de arrays (double *) com malloc e free para as funções de estatística, permitindo ao usuário definir o tamanho do conjunto de dados.
-  * **Persistência (File I/O): Leitura e escrita de arquivos (fopen, fprintf, fgets, sscanf) para salvar e carregar o histórico em formato .csv.
+  * **Structs:** Uso da struct Operacao para gerenciar o histórico de forma organizada.
+  * **Arrays e Alocação Dinâmica:** Uso de arrays (double *) com malloc e free para as funções de estatística, permitindo ao usuário definir o tamanho do conjunto de dados.
+  * **Persistência (File I/O):** Leitura e escrita de arquivos (fopen, fprintf, fgets, sscanf) para salvar e carregar o histórico em formato .csv.
   * **Bibliotecas padrão**:
       * `stdio.h` para entrada e saída de dados.
       * `math.h` para funções matemáticas avançadas (pow, sqrt, sin, cos, etc.).
