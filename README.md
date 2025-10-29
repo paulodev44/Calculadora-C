@@ -4,7 +4,7 @@ Este projeto implementa uma calculadora científica modular e robusta em C. Ela 
 
 -----
 
-## O que o programa faz
+# O que o programa faz
 
 O usuário interage através de um menu interativo em loop, podendo realizar várias operações até escolher a opção de sair. O programa é robusto contra entradas inválidas (como letras em vez de números), armazena as últimas 20 operações em um histórico (usando struct) e salva esse histórico em um arquivo historico_calculadora.csv ao sair (e o carrega ao iniciar).
 -----
